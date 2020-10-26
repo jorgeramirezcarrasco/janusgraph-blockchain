@@ -1,0 +1,1 @@
+FROM janusgraph/janusgraph:latest
