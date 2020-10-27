@@ -1,21 +1,16 @@
 # JanusGraph for BlockChain Use Case
 
-Server
+Server (Using Cassandra and ElasticSearch)
 
 ```
-docker build -t janusblockchain -f server/Dockerfile .
-
-docker run -it -p 8182:8182 --name janusblockchain-default janusblockchain
+docker-compose up
 ```
 
 Client
 
 ```
-docker build -t janusblockchainclient -f client/Dockerfile .
-
-docker run --rm --link janusblockchain-default:janusgraph -e GREMLIN_REMOTE_HOSTS=janusgraph -it janusblockchainclient ./bin/gremlin.sh
+python3.7 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python janus_client.py
 ```
-
-TODO
-
-https://github.com/JanusGraph/janusgraph-docker/blob/master/docker-compose-cql-es.yml
