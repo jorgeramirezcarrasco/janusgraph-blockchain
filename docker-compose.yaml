@@ -2,9 +2,7 @@ version: "3"
 
 services:
   janusgraph:
-    build:
-      context: ./server
-      dockerfile: Dockerfile
+    image: janusgraph/janusgraph:latest
     container_name: jce-janusgraph
     environment:
       JANUS_PROPS_TEMPLATE: cassandra-es
@@ -29,7 +27,7 @@ services:
     networks:
       - jce-network
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.0
     container_name: jce-elastic
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
