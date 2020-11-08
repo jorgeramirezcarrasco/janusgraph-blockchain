@@ -14,19 +14,19 @@ g = graph.traversal().withRemote(connection)
 tsv_file = open('../data/blockchair_ethereum_transactions_20201025.tsv')
 read_tsv = csv.DictReader(tsv_file, delimiter="\t")
 
-for tx in read_tsv:
+for tx_row in read_tsv:
   tx = g.addV('tx')
-  for key in tx.keys:
+  for key in tx_row.keys():
     if key == "sender":
       sender = g.addV('sender').next()
-    if key == "receiver":
-      receiver = g.addV('receiver').next()
-    tx.property(key,tx[key])
+    if key == "recipient":
+      recipient = g.addV('recipient').next()
+    tx.property(key,tx_row[key])
   tx.next()
   #Check if it is stored
-  print(g.V().has('tx','hash',tx['hash']).next())
+  print(g.V().has('tx','hash',tx_row['hash']).next())
   # Create links
   g.V(Bindings.of('id',tx)).addE('sent by').to(sender).iterate()
-  g.V(Bindings.of('id',tx)).addE('received by').to(receiver).iterate()
+  g.V(Bindings.of('id',tx)).addE('received by').to(recipient).iterate()
 
 connection.close()
