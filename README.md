@@ -14,3 +14,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 python janus_client.py
 ```
+
+Add Graph Explorer to Visualize Graph
+
+```
+docker run -p 8888:8888 -d --name graph-explorer invanalabs/graph-explorer
+```
