@@ -11,7 +11,7 @@ services:
       janusgraph.index.search.hostname: jce-elastic
       janusgraph.gremlin.graph: org.janusgraph.core.ConfiguredGraphFactory
       janusgraph.graph.graphname: ConfigurationManagementGraph
-      janusgraph.cache.db-cache: true
+      janusgraph.cache.db-cache: "true"
       janusgraph.cache.db-cache-clean-wait: 20
       janusgraph.cache.db-cache-time: 180000
       janusgraph.cache.db-cache-size: 0.5
