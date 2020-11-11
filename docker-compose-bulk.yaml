@@ -2,19 +2,15 @@ version: "3"
 
 services:
   janusgraph:
-    image: janusgraph/janusgraph:latest
+    build:
+      context: ./server
+      dockerfile: Dockerfile
     container_name: jce-janusgraph
     environment:
       JANUS_PROPS_TEMPLATE: cassandra-es
       janusgraph.storage.backend: cql
       janusgraph.storage.hostname: jce-cassandra
       janusgraph.index.search.hostname: jce-elastic
-      janusgraph.gremlin.graph: org.janusgraph.core.ConfiguredGraphFactory
-      janusgraph.graph.graphname: ConfigurationManagementGraph
-      janusgraph.cache.db-cache: "true"
-      janusgraph.cache.db-cache-clean-wait: 20
-      janusgraph.cache.db-cache-time: 180000
-      janusgraph.cache.db-cache-size: 0.5
     ports:
       - "8182:8182"
     networks:
