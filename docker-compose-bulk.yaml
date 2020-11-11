@@ -6,6 +6,9 @@ services:
       context: ./server
       dockerfile: Dockerfile
     container_name: jce-janusgraph
+    depends_on:
+      - elasticsearch
+      - cassandra
     environment:
       JANUS_PROPS_TEMPLATE: cassandra-es
       janusgraph.storage.backend: cql
