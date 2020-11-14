@@ -1,9 +1,17 @@
 # JanusGraph for BlockChain Use Case
 
-Server (Using Cassandra and ElasticSearch)
+Server (Using default configuration for Gremlin Server, Cassandra and ElasticSearch)
 
 ```
 docker-compose up
+```
+
+Server (Using ConfiguredGraphFactory for Bulk Update in Gremlin Server, Cassandra and ElasticSearch)
+
+```
+docker-compose -f docker-compose-bulk.yaml build
+
+docker-compose -f docker-compose-bulk.yaml up
 ```
 
 Client
