@@ -36,9 +36,11 @@ RUN curl -fSL https://github.com/JanusGraph/janusgraph/releases/download/v${JANU
 
 COPY conf/janusgraph-cql-es-server.properties \ 
 conf/gremlin-server.yaml \
+conf/gremlin-server-preconfig.yaml \
+scripts/init-graph.groovy \
 conf/log4j-server.properties \
 ${JANUS_HOME}/conf/gremlin-server/
-COPY scripts/remote-connect.groovy ${JANUS_HOME}/scripts/
+COPY scripts/remote-connect.groovy scripts/empty-sample.groovy ${JANUS_HOME}/scripts/
 
 FROM openjdk:8-jdk
 

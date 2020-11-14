@@ -36,4 +36,6 @@ for f in /docker-entrypoint-initdb.d/*; do
     *)        echo "$0: ignoring $f" ;;
   esac
   echo
+
+echo "Finished load-initdb.sh"
 done

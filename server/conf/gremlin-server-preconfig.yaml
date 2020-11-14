@@ -38,7 +38,7 @@ scriptEngines:
                 methodImports: [java.lang.Math#*],
               },
             org.apache.tinkerpop.gremlin.jsr223.ScriptFileGremlinPlugin:
-              { files: [scripts/empty-sample.groovy] },
+              { files: [] },
           },
       },
   }
