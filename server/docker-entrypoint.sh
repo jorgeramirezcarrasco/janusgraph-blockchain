@@ -42,7 +42,7 @@ if [ "$1" == 'janusgraph' ]; then
     /usr/local/bin/load-initdb.sh &
 
     ${JANUS_HOME}/bin/gremlin-server.sh ${JANUS_CONFIG_DIR}/gremlin-server-preconfig.yaml &
-    ${JANUS_HOME}/bin/gremlin.sh -e ${JANUS_CONFIG_DIR}/init-graph.groovy &
+    ${JANUS_HOME}/bin/gremlin.sh -e /opt/janusgraph/scripts/init-graph.groovy &
     exec ${JANUS_HOME}/bin/gremlin-server.sh ${JANUS_CONFIG_DIR}/gremlin-server.yaml
     
   fi
