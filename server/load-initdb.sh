@@ -19,6 +19,7 @@
 # limitations under the License.
 
 # exit early if directory is empty
+echo "Executing load-initdb.sh"
 if ! [ "$(ls -A /docker-entrypoint-initdb.d)" ]; then
     exit 0
 fi
