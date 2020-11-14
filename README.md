@@ -28,3 +28,5 @@ Add Graph Explorer to Visualize Graph
 ```
 docker run -p 8888:8888 -d --name graph-explorer invanalabs/graph-explorer
 ```
+
+In the browser connect using: ws://localhost:8182/gremlin
