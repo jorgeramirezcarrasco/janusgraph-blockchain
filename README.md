@@ -30,3 +30,9 @@ docker run -p 8888:8888 -d --name graph-explorer invanalabs/graph-explorer
 ```
 
 In the browser connect using: ws://localhost:8182/gremlin
+
+References:
+
+https://medium.com/@nitinpoddar/bulk-loading-data-into-janusgraph-ace7d146af05
+https://medium.com/@nitinpoddar/bulk-loading-data-into-janusgraph-part-2-ca946db26582
+https://docs.janusgraph.org/

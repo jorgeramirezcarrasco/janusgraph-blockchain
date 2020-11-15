@@ -15,18 +15,18 @@ tsv_file = open('../data/blockchair_ethereum_transactions_20201025.tsv')
 read_tsv = csv.DictReader(tsv_file, delimiter="\t")
 
 for tx_row in read_tsv:
-  tx = g.addV('tx')
+  tx = g.addV('TX')
   for key in tx_row.keys():
     if key == "sender":
-      sender = g.addV('sender').next()
+      sender = g.addV('SENDER').next()
     if key == "recipient":
-      recipient = g.addV('recipient').next()
+      recipient = g.addV('RECIPIENT').next()
     tx.property(key,tx_row[key])
   tx.next()
   #Check if it is stored
-  print(g.V().has('tx','hash',tx_row['hash']).next())
+  print(g.V().has('TX','hash',tx_row['hash']).next())
   # Create links
-  g.V(Bindings.of('id',tx)).addE('sent by').to(sender).iterate()
-  g.V(Bindings.of('id',tx)).addE('received by').to(recipient).iterate()
+  g.V(Bindings.of('id',tx)).addE('SENT_BY').to(sender).iterate()
+  g.V(Bindings.of('id',tx)).addE('RECEIVED_BY').to(recipient).iterate()
 
 connection.close()
