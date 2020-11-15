@@ -26,7 +26,8 @@ for tx_row in read_tsv:
   #Check if it is stored
   print(g.V().has('TX','hash',tx_row['hash']).next())
   # Create links
-  g.V(Bindings.of('id',tx)).addE('SENT_BY').to(sender).iterate()
-  g.V(Bindings.of('id',tx)).addE('RECEIVED_BY').to(recipient).iterate()
+  tx.addE('SENT_BY').to(sender).iterate()
+  tx.addE('RECEIVED_BY').to(recipient).iterate()
+  print(g.V().outE().inV().path())
 
 connection.close()
