@@ -48,5 +48,5 @@ ethereum.printSchema()
 //close resources
 ethereum.commit()
 ethereum.close()
-g.close()
+
 globals << [g : g.traversal()]
