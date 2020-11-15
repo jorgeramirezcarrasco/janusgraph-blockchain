@@ -23,7 +23,7 @@ map.put("cluster.max-partitions",6)
 map.put("storage.buffer-size", 2048) // No. of requests write batches for storage backend
 map.put("ids.authority.wait-time", 1000)
 ConfiguredGraphFactory.createConfiguration(new MapConfiguration(map));
-g = ConfiguredGraphFactory.open("test");
+g = ConfiguredGraphFactory.open("ethereum");
 ethereum = g.openManagement()  //opens the management graph
 
 //created vertex and edge labels
