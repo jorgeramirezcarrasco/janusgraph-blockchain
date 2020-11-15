@@ -15,13 +15,13 @@ map.put("graph.graphname","test")
 map.put("ids.block-size",15000000)
 map.put("query.batch",true)
 map.put("storage.backend","cql")
-//map.put("storage.cql.read-consistency-level","LOCAL_ONE")
-//map.put("storage.cql.replication-factor",3)
-//map.put("storage.cql.write-consistency-level","LOCAL_ONE")
+map.put("storage.cql.read-consistency-level","LOCAL_ONE")
+map.put("storage.cql.replication-factor",1)
+map.put("storage.cql.write-consistency-level","LOCAL_ONE")
 map.put("storage.hostname","cassandra")
-//map.put("cluster.max-partitions",6)
+map.put("cluster.max-partitions",6)
 map.put("storage.buffer-size", 2048)
 map.put("ids.authority.wait-time", 1000)
 ConfiguredGraphFactory.createConfiguration(new MapConfiguration(map));
-ig = ConfiguredGraphFactory.open("test");
-globals << [ig : ig.traversal()]
+g = ConfiguredGraphFactory.open("test");
+globals << [g : g.traversal()]
